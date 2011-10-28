@@ -1,0 +1,72 @@
+<html>
+
+<body>
+<script type="text/javascript">
+
+function CalculateElo(){
+
+var p1currentrating = document.score.p1currentrating.value * 1;
+var p2currentrating = document.score.p2currentrating.value * 1;
+var matchwinner = "Player12";
+var score = 1;
+var winrating = "";
+if (matchwinner = "Player1");
+
+
+var scorediff = 3;
+var k = 32;
+var f = 400;
+var d = p2currentrating - p1currentrating;
+var elopercent = 1 / ( 1 + Math.pow( 10, d / f ) );
+if(score > 0) {winrating = Math.round(k * (1 - elopercent));}
+if(score == 0){ winrating = Math.round(k * (0 - elopercent));}
+
+
+document.Elo.p1newrating.value = winrating;
+document.Elo.p2newrating.value = elopercent;
+}
+</script>
+
+
+<h1>
+Elo Calculating App
+</h1>
+<table width=540 style="border: 1px solid #888899; background-color:#EEEEEE"><tr><td>
+<form name="score" action="" style="margin: 4px 4px 4px 4px;">
+<table><tr>
+<td>Player 1</td>
+<td>Player 1 Current Ranking</td>
+<td>Player 2</td>
+<td>Player 2 Current Ranking</td>
+<td>Winner</td>
+</tr>
+<tr><td>
+<input name="player1" value="0" size="15"/>
+</td><td>
+<input name="p1currentrating" value="2234" size="15"/>
+</td><td>
+<input name="player2" value="0" size="15"/>
+</td><td>
+<input name="p2currentrating" value="2456" size="15"/>
+</td><td>
+</td></tr>
+</table>
+<input type="button" value="Calculate Elo" onClick="CalculateElo()" class="button"/>
+</form>
+</table>
+<br/>
+
+<table style="border: 1px solid #888888; background-color:#EEEEEE"><tr><td>
+<form name="Elo" action="" style="margin: 6px 6px 6px 6px;">
+Player 1 new rating:
+<input name="p1newrating" style="border: 0px; font-weight:bold; background-color:#EEEEEE" size="8"/>
+Player 2 new rating:
+<input name="p2newrating" style="border: 0px; font-weight:bold; background-color:#EEEEEE" size="8"/>
+</form>
+</td></tr>
+</table>
+
+
+</body>
+
+</html>
